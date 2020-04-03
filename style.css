@@ -1,0 +1,13 @@
+body {
+    background: black url("img/lumiere.jpg") no-repeat;
+    background-size: cover;
+    background-position: relative;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 120pt;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: black;
+}
