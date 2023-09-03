@@ -4,33 +4,45 @@
 <head>
     <title>Jake Saunders' Website</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+        </script>
 </head>
 
 <body>
 
     <div>
 
-        <p><img src="img/photo.png" alt="Photo of me from just after my friends Jack and Vicky got married."
-                style="width:195px;height:203px;margin-left:15px;">
+        <p><img src="img/photo.png" title="Photo of me from just after my friends Jack and Vicky got married."
+                style="width:195px;height:203px;margin-left:15px;" class="right" />
 
             My name is Jake Saunders. You can contact me via email: JSESaunders1 at sheffield dot ac dot uk.
 
             <br><br>
 
-            I am a first year maths PhD student at the University of Sheffield. My research is in algebraic topology. I
+            I am a first year maths PhD student at the University of Sheffield. I am a member of the <a href="https://alg-top.sites.sheffield.ac.uk/">algebraic topology research group</a>. I
             am supervised by <a href="https://szymik.github.io/">Markus Szymik</a>.
 
             <br><br>
 
-            <!-- My CV is <a href="https://drive.google.com/uc?export=download&id=1rS0SBwHmDHyzn2tJzAMVb7w3Z4mV88mQ">here</a>.
-<br><br>
--->
 
-            I am currently learning about highly structured ring spectra, with a particular focus on obtaining a better understanding of the E-infinity structure on the unoriented bordism spectrum.
+            I am currently learning about highly structured ring spectra, with a particular focus on obtaining a better understanding of the natural $E_\infty$ structure on the unoriented bordism spectrum.
 
             <br><br>
 
-            I was previously an MMath student at Durham University.
+            A list of conferences I've attended can be found <a href="conferences.html">here</a>.
+
+            <br><br>
+
+            I was previously an MMath student at Durham University. <a href="undergrad.html">Here is a page with some stuff I did as an undergraduate</a>.
+
+            <br><br>
         </p>
 
         <!--<h1>This website is made to look like <a href="https://www.cs.ru.nl/~freek/">Freek Wiedijk's</a>.-->
