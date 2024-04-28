@@ -36,6 +36,18 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+p.justify {
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+p.centre {
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
 h1 {
     color: lightgray;
     float: center;
@@ -57,6 +69,22 @@ h3 {
     color: lightgray;
     float: center;
     font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h4 {
+
+    color: lightgray;
+    float: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h5 {
+
+    color: lightgray;
+    float: center;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
