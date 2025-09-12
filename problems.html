@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Problems | Jake Saunders' Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+</head>
+
+<body>
+
+  <div>
+
+    <p><a href="index.html">
+        < Back to Home</a>
+    </p>
+
+    <h2>Maths Problems</h2>
+
+    <img src="img/problems.jpg" class="main">
+
+    <p>
+      Here is a list of problems that I'm interested in. They might have existing answers but I don't know them.   
+      If you have questions/answers regarding any of these and happen
+      to be reading this, please send me an email!
+    </p>
+
+    <h3>Comparing Proofs of the Deligne Conjecture</h3>
+    <p>The Deligne conjecture, now a theorem, states that the chain complex computing Hochschild cohomology of an
+      associative algebra carries an $E_2$ structure. Hochschild cohomology can be thought of as the derived centre of
+      an algebra, and just as the centre of a ring is commutative, the derived centre has an $E_2$ structure (a derived
+      analogue of commutativity).
+
+      <br>
+      <br>
+
+      This, and related results, admit a bunch of proofs (I'll add more examples of proofs to this list over time).
+      <ul>
+        <li>In Jim McClure and Jeff Smith's papers, in particular <a href="https://zbmath.org/1064.55008"> "Cosimplicial objects and little $n$-cubes I"</a>, where for $\mathcal{C}$ a topological category, the category $[\Delta_+, \mathcal{C}]$ is equipped with a symmetric monoidal structure whose commutative monoids totalise to $E_2$ algebras. This is exploited to construct such an $E_2$ structure on the Hochschild cohomology complex.</li>
+        <br>
+        <li>In Lurie's <a href="https://www.math.ias.edu/~lurie/papers/HA.pdf#section.5.3">Higher Algebra, Section 5.3</a>, Lurie defines the centre of an object in an $\infty$-category $\mathcal{M}$ tensored over $\mathcal{C}$.
+        A definition of $E_n$ centre is obtained as a consequence, and exists under certain non-restrictive conditions.</li>
+      </ul>
+      
+      <p>
+      I would expect that the $E_2$ structures are all equivalent (they all come from the same sort of observation), but know of no reason why this is true a priori, and it would be satisfying to have a survey paper which compares the different approaches. My thesis will most likely contain a result comparing the McClure-Smith and Lurie approaches, and I'd be happy to say more about this to anybody interested.
+    </p>
+
+    <h3>Bundles and Classifying Objects</h3>
+    <p>There are several results of the following form: there is a space $B$ such that isomorphism classes of bundles $E
+      \to X$ correspond to homotopy classes of maps $X \to B$. For instance:</p>
+    <ul>
+      <li>
+        <p>smooth $\mathbb{R}^n$-bundles correspond to homotopy classes of continuous functions $X \to BO(n)$;</p>
+      <li>
+        <p>Grothendieck fibrations $\mathcal{E} \to \mathcal{C}$ correspond to pseudofunctors $\mathcal{C} \to
+          \text{Cat}$;</p>
+    </ul>
+    <p>
+      etc., and you can probably think of more examples of this behaviour in your field.
+      In each example, a "bundle theory" has an associated classifying object.
+      The problem is: what is a "bundle theory", and is there a way to reliably construct an associated classifying object?
+      I think that abstracting this is probably quite tricky.
+      Note that, while $BO(n)$ classifies bundles in the category of smooth manifolds and $\text{Cat}$ classifies bundles in the category of categories, $BO(n)$ is not a smooth manifold and $\text{Cat}$ is not a 1-category.
+      <br><br>
+      One potential starting point is Cockett-Cruttwell's work on tangent categories (see e.g. <a href=https://arxiv.org/abs/1606.08379>this paper</a>) and Bauer-Burke-Ching's homotopical extension of this (see <a href=https://arxiv.org/abs/2101.07819v4>this paper</a>).
+      The latter gives a common generalisation of "vector bundle" and "bundle of stable $\infty$-categories", so the theory might lead to a reliable construction of a classifying object.
+      <br><br>
+      If I remember correctly, my original motivation for this was to see if there's a version of the Pontrjagin-Thom construction for various kinds of stratified spaces in the sense of <a href="https://arxiv.org/abs/1409.0501">Ayala-Francis-Tanaka</a>, giving rise to bordism spectra for manifolds with singularities, possibly also coming equipped with $E_n$ structures if certain criteria are met.
+    </p>
+
+
+    <h3>Duality of Traces and Cotraces</h3>
+    <p>Callum Reader has a <a href="https://etheses.whiterose.ac.uk/id/eprint/33327/">really cool PhD thesis</a> where he internalises the construction of the cotrace of an endomorphism in a monoidal bicategory.
+    Morally speaking (and in a ton of examples) the trace and cotrace are dual, and Callum's thesis tells us that they are both given by an endomorphism of the monoidal unit, placing them in the same context.
+    For example:
+    <ul>
+      <li>the coend of a profunctor is a trace, and its cotrace is its end;</li>
+      <li>the Hochschild homology of a derived bimodule is a trace, and its cotrace is Hochschild cohomology.</li>
+    </ul>
+    <p>
+    At the end of his thesis, Callum asks if there is "some sense in which the cotrace is formally dual to the trace".
+    I'd like to know the answer to this too.
+  </p>
+
+    <!--<h1>This website is made to look like <a href="https://www.cs.ru.nl/~freek/">Freek Wiedijk's</a>.-->
+
+  </div>
+
+</body>
+
+</html>
