@@ -36,6 +36,12 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+blockquote {
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
 li {
     color: lightgray;
     font-family: Arial, Helvetica, sans-serif;
