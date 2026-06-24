@@ -1,0 +1,250 @@
+\documentclass{article}
+
+\input{preamble.tex}
+
+\title{Higher algebra in characteristic 2}
+\author{Jacob Saunders}
+
+\begin{document}
+
+\maketitle
+
+Everything in the talk is implicitly derived.
+For example, (co)limits are really homotopy (co)limits when this makes sense, smash products are derived smash products, etc.
+
+The bulk of this talk is really purloined from \cite{szymik}.
+
+\section{The story, up to homotopy}
+
+\begin{definition}
+    A \textit{graded Eilenberg--MacLane spectrum} (of characteristic 2), or \textit{GEM} for short, is a spectrum of the form $\bigwedgesum_{\mathcal{I}} \Sigma^i \HF_2$ for some indexing multiset $\mathcal{I}$.
+\end{definition}
+
+Alternatively, you could think of these as the Eilenberg--MacLane spectra $HR$ of graded $\F_2$-algebras $R$.
+These admit canonical ring structures up to homotopy, and can even be refined to $E_\infty$ rings.
+
+The homotopy theory of these objects is algebraic, as is covered in \cite{boardman}.
+
+\begin{lemma}[{\cite[Lemma 2.1]{boardman}}]
+    Let $X$ be a GEM.
+    Then the Hurewicz map $\pi_* X \to H_* X$ is injective, the embedded submodule given by the elements $x \in H_* X$ such that the dual Steenrod comodule action sends $x$ to $1 \otimes x$.
+\end{lemma}
+
+\begin{lemma}[{\cite[Lemma 2.3]{boardman}}]
+    Let $X, Y$ be GEMs.
+    Then (homotopy classes of) maps $f : X \to Y$ correspond to commutative squares
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHBpXyogWCJdLFsxLDAsIlxccGlfKiBZIl0sWzAsMSwiSF8qIFgiXSxbMSwxLCJIXyogWSJdLFswLDEsImYiXSxbMCwyLCJoIiwyXSxbMSwzLCJoIl0sWzIsMywiZiIsMl1d
+    \[\begin{tikzcd}
+        {\pi_* X} & {\pi_* Y} \\
+        {H_* X} & {H_* Y}
+        \arrow["f", from=1-1, to=1-2]
+        \arrow["h"', from=1-1, to=2-1]
+        \arrow["h", from=1-2, to=2-2]
+        \arrow["f"', from=2-1, to=2-2]
+    \end{tikzcd}\]
+    where the top map is a module map, and the bottom is a map of $\A_*$-comodules.
+\end{lemma}
+
+This result can be used prove that there are no exotic homotopy ring spectrum structures on GEMs.
+
+\begin{lemma}[{\cite[Theorem 1.1]{boardman}}]
+    Let $X$ be a homotopy ring spectrum whose underlying object is a GEM.
+    Then there is an isomorphism of ring spectra $X \simeq H\pi_*X$.
+\end{lemma}
+
+It is feasible that there are homotopy ring spectra with $\pi_* X$ a graded $\F_2$-algebra but which are not additively GEMs.
+If we impose a commutativity condition, however, then this is not the case.
+
+\begin{theorem}[{\cite{pazhitnov-rudyak}, \cite[Theorem 1.1]{wurgler}}]
+    If $X$ is a homotopy commutative ring spectrum of characteristic 2, then $X$ is additively a GEM.
+\end{theorem}
+
+Here, $X$ having characteristic 2 simply means that $\pi_0 X$ has characteristic 2.
+Commutativity here is required -- Wurgler gives some examples (e.g.\ spectra representing bordism with singularities) for which this doesn't hold.
+
+\section{(Weakly) initial $E_n$ rings of characteristic 2}
+The initial rings $Z/p$ of characteristic $p$ are pretty fundamental, and it's natural to ask if there are analogues of these in higher algebra.
+The ring $\Z/2$ can be thought of as the cofiber $\Z \xrightarrow{\cdot 2} \Z$, and so the obvious candidate in our situation is the cofiber $S^0 \xrightarrow{\cdot 2} S^0 \to S^0/2$.
+This is given by the mod 2 Moore spectrum, but this does not admit a homotopy ring structure!
+
+Another way to present $\Z/2$ is to take a pushout
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFpbeF0iXSxbMSwwLCJcXFoiXSxbMCwxLCJcXFoiXSxbMSwxLCJcXFovMiJdLFswLDEsInggXFxtYXBzdG8gMiJdLFswLDIsInggXFxtYXBzdG8gMCIsMyx7Im9mZnNldCI6Mywic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsMl0sWzEsM10sWzIsM11d
+\[\begin{tikzcd}
+	{\Z[x]} & \Z \\
+	\Z & {\Z/2}
+	\arrow["{x \mapsto 2}", from=1-1, to=1-2]
+	\arrow["{x \mapsto 0}"{marking, allow upside down}, shift right=3, draw=none, from=1-1, to=2-1]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+in the category of commutative rings, which is given by the relative tensor product $\Z \otimes_{Z[x]} \Z$.
+In this context, we are guaranteed a ring structure.
+
+To guarantee the existence of such objects, we work instead inside the category of $E_\infty$-algebras.
+
+\begin{definition}[{\cite[Definition 2.1]{szymik}}]
+    The \textit{versal $E_\infty$ ring spectrum of characteristic 2} is given by the pushout
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFAoU14wKSJdLFsxLDAsIlxcUyJdLFswLDEsIlxcUyJdLFsxLDEsIlxcUyBcXG1vZG1vZCAyIl0sWzAsMiwiXFxldiAwIiwyXSxbMCwxLCJcXGV2IDIiXSxbMiwzXSxbMSwzXSxbMywwLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XV0=
+    \[\begin{tikzcd}
+        {\P(S^0)} & \S \\
+        \S & {\S \modmod 2}
+        \arrow["{\ev 2}", from=1-1, to=1-2]
+        \arrow["{\ev 0}"', from=1-1, to=2-1]
+        \arrow[from=1-2, to=2-2]
+        \arrow[from=2-1, to=2-2]
+        \arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+    \end{tikzcd}\]
+    in the category of $E_\infty$ ring spectra.
+\end{definition}
+Here, $\P(-)$ denotes the free functor $\Spectra \to \Alg_{E_\infty}(\Spectra)$, and the maps $\ev(-)$ arise from the adjunction equivalence.
+This construction can be thought of as freely adding a nullhomotopy of 2 to the sphere, and so if an $E_\infty$ ring $X$ has characteristic 2 (i.e.\ has a nullhomotopy of 2), then it recieves a map from $\S \modmod 2$.In fact, from its description as a pushout, we find
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXEhvbV97RV9cXGluZnR5fShcXFAoU14wKSwgWCkiXSxbMSwwLCJcXEhvbV97RV9cXGluZnR5fShcXFMsIFgpIl0sWzAsMSwiXFxIb21fe0VfXFxpbmZ0eX0oXFxTLCBYKSJdLFsxLDEsIlxcSG9tX3tFX1xcaW5mdHl9KFxcUyBcXG1vZG1vZCAyLCBYKSJdLFszLDJdLFszLDFdLFsyLDBdLFsxLDBdLFszLDAsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+\[\begin{tikzcd}
+	{\Hom_{E_\infty}(\P(S^0), X)} & {\Hom_{E_\infty}(\S, X)} \\
+	{\Hom_{E_\infty}(\S, X)} & {\Hom_{E_\infty}(\S \modmod 2, X)}
+	\arrow[from=1-2, to=1-1]
+	\arrow[from=2-1, to=1-1]
+	\arrow["\lrcorner"{anchor=center, pos=0.125, rotate=225}, draw=none, from=2-2, to=1-1]
+	\arrow[from=2-2, to=1-2]
+	\arrow[from=2-2, to=2-1]
+\end{tikzcd}\]
+and using that $\Hom_{E_\infty}(\S, X) \simeq \ast$ because $\S$ is initial, and using the adjunction equivalence $\Hom_{E_\infty}(\P(S^0), X) \simeq \Hom_{\Spectra}(S^0, X) \simeq \Omega^\infty X$, the pullback is equivalent to
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXE9tZWdhXlxcaW5mdHkgWCJdLFsxLDAsIlxcYXN0Il0sWzAsMSwiXFxhc3QiXSxbMSwxLCJcXEhvbV97RV9cXGluZnR5fShcXFMgXFxtb2Rtb2QgMiwgWCkiXSxbMywyXSxbMywxXSxbMiwwLCIwIl0sWzEsMCwiMiIsMl0sWzMsMCwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d
+\[\begin{tikzcd}
+	{\Omega^\infty X} & \ast \\
+	\ast & {\Hom_{E_\infty}(\S \modmod 2, X)}
+	\arrow["2"', from=1-2, to=1-1]
+	\arrow["0", from=2-1, to=1-1]
+	\arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-2, to=1-1]
+	\arrow[from=2-2, to=1-2]
+	\arrow[from=2-2, to=2-1]
+\end{tikzcd}\]
+so this is empty is 2 is not nullhomotopic, and otherwise is equivalent to $\Omega(\Omega^{\infty} X)$.
+Therefore maps out of these are not even unique up to homotopy if $\pi_1(X)$ is nontrivial.
+
+This whole story admits a generalisation to $E_n$-algebras too, as developed in \cite{simple-universal-property}.
+We denote the corresponding $E_n$ pushout by $\S \modmod_n 2$.
+
+\subsection*{Equivalent methods of obtaining $\S \modmod_n 2$}
+In the $E_\infty$ case, the pushout is a relative smash product, so there is an equivalence
+\[
+    \S \modmod 2 \simeq \S \smashprod_{\P(S^0)} \S
+\]
+of $E_\infty$ ring spectra.
+Note that the $\P(S^0)$-module structures on the left and right smash factors are different.
+In the $E_n$ case, work of Hill--Lawson \cite[Corollary 7.4]{hill-lawson} allows us to write some pushouts as relative smash products.
+This gives us an equivalence
+\[
+    \S \modmod_n 2 \simeq \S \smashprod_{\P_{n + 1}(S^0)} \S.
+\]
+
+These can also be obtained as Thom spectra of the map $\Omega^n \Sigma^n S^1 \to BO$ induced by the non-trivial homotopy class $S^1 \to BO$.
+This gives us the homology
+\[
+    H_*\S \modmod_n 2 \cong H_* \Omega^n\Sigma^nS^1 \cong \F_2[a, Q_1^{i_1} \cdots Q_{n - 1}^{i_{n - 1}}a],
+\]
+which had previously been computed by Cohen. % TODO would be good to cite that.
+
+Since all these things are homotopy commutative and have characteristic 2, you can determine the homotopy by `dividing by' the dual Steenrod algebra.
+Since
+\[
+    H_* \S \modmod_2 2 \cong \A_*,
+\]
+this means $\pi_* \S \modmod_2 2 \cong \F_2$, meaning $\S \modmod_2 2 \simeq \HF_2$.
+
+\section{Applications to $E_n$ maps}
+Because $\HF_2$ is $E_\infty$ and has homotopy concentrated in degree 0, there is an essentially unique map $\S \modmod 2 \to \HF_2$.
+
+\begin{theorem}[{\cite[Proposition 5.1]{szymik}}]
+    There is no $E_\infty$ map $\HF_2 \to \S \modmod 2$.    
+\end{theorem}
+
+\begin{proof}
+    Any such map postcomposes with $\S \modmod 2 \to \HF_2$ to give the identity (up to homotopy) by our classification of $E_n$ endomorphisms of versal algebras, so sends $\xi_1$ to $a$.
+    Furthermore, the map must commute with the Dyer--Lashof operations, predicting that $Q_2 a = Q_2 f(\xi_1) = f(Q_2\xi_1) = f(\xi^4) = a^4$.
+    Since this relation does not hold in $\S \modmod 2$, we derive a contradiction.
+\end{proof}
+
+\begin{definition}
+    The \textit{unoriented bordism spectrum}, denoted $MO$, is the Thom spectrum of the delooped $j$-homomorphism $BO \to B\text{GL}_1\S$.
+\end{definition}
+
+A result of Thom's original paper is that $\pi_* MO$ is the unoriented bordism ring, permitting him to compute that
+\[
+    \pi_* MO \cong \F_2[x_i : i \neq 2^j - 1].
+\]
+Knowing that $MO$ is $E_\infty$ and that the bordism ring has characteristic 2 allows us to use the results of the first part to show that $MO$ is a GEM.
+
+If this is the whole story, then one might expect that there is an $E_\infty$ equivalence $H\pi_* MO \simeq MO$.
+This is not the case!
+
+\begin{theorem}[Helen Gilmour's Thesis]
+    There is no $E_4$ map $\HF_2 \to MO$.
+\end{theorem}
+
+The existence of a map is obstructed by a Dyer--Lashof operation (it must be a $Q_3$).
+These were computed in $\HF_2$ in the $H_\infty$ book, and in $BO$ (and therefore $MO$) by Priddy/Kochman.
+
+To try and recover from this, one might expect that if $\pi_* MO$ is a polynomial ring, $MO$ might be `polynomial' over $\S \modmod 2$, but this is not the case!
+
+\begin{theorem}[{\cite[Corollary 5.11]{szymik}}]
+    There is no spectrum $X$ such that there exists an equivalence
+    \[
+        MO \simeq \S \modmod 2 \smashprod \P(X)
+    \]
+    of $E_\infty$ ring spectra.
+\end{theorem}
+
+\begin{proof}
+    Otherwise there would be a retraction
+    \[
+        \S \modmod 2 \to MO \simeq \S \modmod 2 \smashprod \P(X) \to \S \modmod 2 \smashprod \P(*) \simeq \S \modmod 2,
+    \]
+    but $H_* MO$ is too small to support this.
+    Actually, we can use another Dyer--Lashof operation argument: the image of $Q_2 a$ is $x_1^4$, so the map $\S \modmod 2 \to MO$ is not a homology injection.
+\end{proof}
+
+This raises the question -- what does $MO$ look like as an $E_\infty$ ring spectrum?
+
+\section{Highly structured models of $MO$}
+It turns out that the combinatorics of $H_* BO$ as an algebra over the $E_2$ Dyer--Lashof operations is sufficient to determine that
+\[
+    MO \simeq_{E_1} \HF_2 \smashprod \bigsmashprod_{i \neq 2^j - 1} \P_1(S^i),
+\]
+and
+\[
+    MO \simeq_{E_2} \HF_2 \smashprod \bigsmashprod_{i \in \mathbb{Z}_{> 0}} \P_2(S^{2i}),
+\]
+so Thom's picture is accurate on the level of $E_1$ and $E_2$ ring spectra.
+Note that the smash product is not the coproduct of $E_n$ rings for $n \neq \infty$.
+
+We know (from the earlier result about the non-existence of an $E_4$ map $\HF_2 \to MO$) that this won't be the case for $E_4$, but what about $E_3$?
+
+\subsection*{A quick aside on $H_\infty$ and $E_\infty$}
+The calculations I'm going to talk about only involve the $H_n$ structure of $MO$ (the Dyer--Lashof operations), but turn out to give $E_n$ models of $MO$.
+Noel and Lawson both construct instances of $H_\infty$ ring spectra that do not refine to $E_\infty$ ring spectra, and Johnson--Noel construct an obstruction theory that deals with this.
+Computing the obstruction groups is hard.
+It's possible that in our cases of interest, the obstruction theory allows for our $H_\infty$ maps to be refined in a unique or canonical way, but the calculations I am going to talk about are somehow elementary in comparison.
+
+There are no obstructions to the existence of an $E_3$ map $\HF_2 \to MO$ on the level of homology, but it remains to try and construct one.
+If we can do this, the combinatorics of $H_* BO$ immediately give an equivalence
+\[
+    MO \simeq_{E_3} \HF_2 \smashprod \P_3(S^2) \smashprod \bigsmashprod_{i \in \mathbb{Z}_{> 0}} \P_3(S^{4i}).
+\]
+
+\subsection*{An $E_3$ model of $\HF_2$}
+I still have things to check here, so take this last part of the talk with a pinch of salt.
+
+Our aim is to equip $\HF_2$ with an $E_3$ universal property, so that construction of an $E_3$ map $\HF_2 \to MO$ becomes trivial.
+The ideal thing would be to approximate $\HF_2$ using $E_3$ pushouts, iteratively adding and killing classes in the relevant degrees to get successively better approximations.
+However, computing non-$E_3$ invariants of $E_3$ pushouts is difficult.
+Results of Hill--Lawson from earlier, however, tell us that some $E_3$ pushouts are equivalent to relative smash products, and invariants of these can be computed using the Kunneth spectral sequence.
+
+The pushouts that can be computed as relative smash products come from \textit{actions}, classified by homotopy classes $S^i \to Z_n(X)$, where $Z_n$ denotes the \textit{$E_n$ centre} of $X$.
+We can iteratively construct the relevant homotopy classes using universal properties of more structured variants of $X$.
+
+\bibliographystyle{alpha}
+\bibliography{refs}
+
+\end{document}
