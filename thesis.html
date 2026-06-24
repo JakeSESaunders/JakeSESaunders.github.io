@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Expository Stuff | Jake Saunders' Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+</head>
+
+<body>
+
+  <div>
+
+    <p><a href="index.html">
+        < Back to Home</a>
+    </p>
+
+    <h1>My PhD thesis: The Multiplicative Structure of the Unoriented Bordism Spectrum</h1>
+
+    <p>
+      During my PhD, I thought about highly structured ring spectra of characteristic 2.
+      The main focus was the unoriented bordism spectrum, which is well-understood as a plain homotopy commutative ring
+      spectrum (it splits as a wedge sum of suspensions of Eilenberg--MacLane spectra $H\mathbb{F}_2$), but not as an
+      $E_n$ ring spectrum.
+      One can prove that this splitting refines to a map of $E_1$ ring spectra, and I used Dyer--Lashof operations to
+      prove that there is an $E_2$ equivalence $$MO \simeq H\mathbb{F}_2 \wedge \bigwedge_{i = 1}^{\infty}
+      \mathbb{P}_2(S^{2i}).$$
+      I reduced the existence of a similar $E_3$ equivalence
+      $$MO \simeq H\mathbb{F}_2 \wedge \mathbb{P}_3(S^2) \wedge \bigwedge_{i = 1}^{\infty} \mathbb{P}_3(S^{4i})$$
+      to the existence of an $E_3$ map $H\mathbb{F}_2 \to MO$.
+      I studied a hypothetical $E_3$ decomposition of $H\mathbb{F}_2$, reducing the existence of such a map to computations in $E_3$ centres.
+      Though I was unable to perform these calculations, I studied centres in enriched higher category theory more generally.
+      I proved that for an $E_1$ monoid $R$ in a monoidal $\infty$-category $\mathcal{V}$, there is an equivalence
+      $$Z_1(R) \simeq \Omega_{\text{Id}_{BR}} [BR, BR]$$
+      where $BR$ denotes the one object $\mathcal{V}$-enriched $\infty$-category with $\text{Hom}_{BR}(\bullet, \bullet) = R$.
+      This fact has a well-known 1-categorical variant, and there are similar results
+      $$Z_n(R) \simeq \Omega_{\text{Id}}Z_{n - 1}(BR)$$
+      which only exist in the homotopical context.
+      Both come from proving that
+      $$Z_{\mathcal{C}}(X) \simeq RZ_{\mathcal{D}}(LX)$$
+      for a nicely behaved adjoint pair $(L, R)$.
+      Having this in the higher-categorical context makes proving some facts about centres of $E_n$ monoids a bit easier.
+      <br><br>
+      I also made some headway into understanding the low-dimensional skeleta of an $E_\infty$ cell
+      decomposition of $MO$.
+      <br><br>
+      The primary goal was to understand $MO$ well enough to determine whether the ring homomorphism
+      $$\begin{gather}
+      MO_* \to \mathbb{F}_2[t],\\
+      [M] \mapsto \chi(M)t^{\frac{\dim M}{2}},
+      \end{gather}$$
+      refines to a map of $E_n$ ring spectra.
+      Using the $E_1$ and $E_2$ equivalences, I proved that this can be done for $n = 1, 2$.
+      Furthermore, I proved that if an $E_\infty$ refinement exists, then $Eh$ (the spectrum refining the target) must
+      be an $H\mathbb{F}_2$-algebra, and there must be an isomorphism $H_*Eh \cong H_*\text{THH} \mathbb{F}_2$ of
+      algebras over the Dyer--Lashof operations, and that the hypothetical map
+      $$H_*MO \to H_*\text{THH}\mathbb{F}_2 \to \pi_*\text{THH}\mathbb{F}_2$$
+      commutes with the Dyer--Lashof operations.
+      <br><br>
+      To speed up the low-dimensional computations, I wrote a Python program that can calculate
+    </p>
+    <ul>
+      <li>the Dyer--Lashof operations in $H_*BO$, and therefore in $H_*MO$,</li>
+      <li>the normal and tangential Stiefel--Whitney classes of projective spaces and Dold manifolds,</li>
+      <li>the Hurewicz images of their bordism classes in the standard basis of $H_*BO$,</li>
+      <li>conversions between the standard basis of $H_*BO$ and the basis of duals of monomials $w_{i_1} \cdots w_{i_n}$,</li>
+    </ul>
+    <p>
+      and generally perform arithmetic operations in $H_*BO$.
+      I will make the source code available soon.
+      I will also add a link to my thesis, and the $\LaTeX$ source, after my viva, in case Sheffield's plagarism detection apparatus thinks I've copied it verbatim from my own website.
+    </p>
+
+
+
+    <!--<h1>This website is made to look like <a href="https://www.cs.ru.nl/~freek/">Freek Wiedijk's</a>.-->
+
+  </div>
+
+</body>
+
+</html>
